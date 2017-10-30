@@ -345,7 +345,8 @@ class AvatarEditor extends React.Component {
     const imageObj = new Image()
     imageObj.onload = this.handleImageReady.bind(this, imageObj)
     imageObj.onerror = this.props.onLoadFailure
-    if (!this.isDataURL(imageURL) && this.props.crossOrigin) { imageObj.crossOrigin = this.props.crossOrigin }
+    // if (!this.isDataURL(imageURL) && this.props.crossOrigin) { imageObj.crossOrigin = this.props.crossOrigin }
+    if (this.props.crossOrigin) imageObj.crossOrigin = this.props.crossOrigin
     imageObj.src = imageURL
   }
 
